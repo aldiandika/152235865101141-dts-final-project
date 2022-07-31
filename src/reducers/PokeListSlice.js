@@ -8,15 +8,24 @@ const initialState = {
   prevList: null,
 };
 
-// Fetch First List
-
+// Fetch first List
 export const getPokeList = createAsyncThunk(
   "pokelist/fetchFirstList",
   async () => {
     const response = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon?limit=40`
+      `https://pokeapi.co/api/v2/pokemon?limit=32`
     );
     // console.log(response.data);
+    return response.data;
+  }
+);
+
+// Fetch next or previous list
+export const getNewPokeList = createAsyncThunk(
+  "pokeList/fetchNextOrPrev",
+  async (url) => {
+    const response = await axios.get(url);
+    console.log(response.data);
     return response.data;
   }
 );
@@ -37,6 +46,20 @@ const PokemonListSlice = createSlice({
         state.loading = true;
       })
       .addCase(getPokeList.rejected, (state, action) => {
+        console.log("fail to get list");
+        state.loading = false;
+      })
+      .addCase(getNewPokeList.fulfilled, (state, action) => {
+        // Assign to state
+        state.pokeList = action.payload.results;
+        state.nextList = action.payload.next;
+        state.prevList = action.payload.previous;
+        state.loading = false;
+      })
+      .addCase(getNewPokeList.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(getNewPokeList.rejected, (state, action) => {
         console.log("fail to get list");
         state.loading = false;
       });
