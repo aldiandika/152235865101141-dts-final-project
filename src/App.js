@@ -4,6 +4,7 @@ import LoginPage from "./containers/LoginPage";
 import Homepage from "./containers/Homepage";
 // import ProtectedComponent from "./components/ProtectedComponent";
 import LoadingPage from "./containers/LoadingPage";
+import LostPage from "./containers/404_page";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
 
         {/* Loading page */}
         <Route path="/loading" element={<LoadingPage />} />
+
+        {/* 404 Page */}
+        <Route path="/*" element={<LostPage />} />
       </Routes>
     </BrowserRouter>
   );
