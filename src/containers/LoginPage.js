@@ -1,14 +1,11 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box } from "@mui/material";
+import LoginOrRegister from "../components/LoginOrRegister";
 
 const LoginPage = () => {
   return (
     <>
       <Box className="root-container">
-        <div>Let Start Discover</div>
-        <TextField label="email" />
-        <TextField label="password" />
-
-        <Button>Login</Button>
+        <LoginOrRegister loginOrRegister={"login"} />
       </Box>
     </>
   );

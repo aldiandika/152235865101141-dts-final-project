@@ -25,7 +25,7 @@ export const getNewPokeList = createAsyncThunk(
   "pokeList/fetchNextOrPrev",
   async (url) => {
     const response = await axios.get(url);
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   }
 );

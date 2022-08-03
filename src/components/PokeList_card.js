@@ -75,7 +75,7 @@ const PokeListCard = ({ pokeUrl, pokeName }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [pokeUrl]);
+  }, []);
 
   return (
     <>
@@ -151,8 +151,8 @@ const PokeListCard = ({ pokeUrl, pokeName }) => {
                 style={{
                   width: 200,
                   position: "absolute",
-                  top: -40,
-                  left: 70,
+                  top: -30,
+                  left: 140,
                   zIndex: 100,
                 }}
               />

@@ -63,7 +63,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-              to="/"
+              to="/my-pokemon"
               className={({ isActive }) =>
                 isActive ? "nav-active" : "nav-inactive"
               }
@@ -77,7 +77,7 @@ const Navbar = () => {
                   style={{
                     cursor: "pointer",
                     color: "white",
-                    backgroundColor: "#141414",
+                    backgroundColor: "#386A7B",
                     borderColor: "white",
                     borderRadius: "12px",
                     paddingLeft: "8px",

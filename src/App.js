@@ -1,10 +1,12 @@
 import "./styles/main-style.css";
+import "./styles/loading-style.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./containers/LoginPage";
 import Homepage from "./containers/Homepage";
 // import ProtectedComponent from "./components/ProtectedComponent";
 import LoadingPage from "./containers/LoadingPage";
 import LostPage from "./containers/404_page";
+import RegisterPage from "./containers/RegisterPage";
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
 
         {/* Login and register */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected Route */}
         {/* <Route

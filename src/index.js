@@ -6,10 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import PokeListSlice from "./reducers/PokeListSlice";
 import { Provider } from "react-redux";
+import PokeDataSlice from "./reducers/PokeDataSlice";
 
 const store = configureStore({
   reducer: {
     pokelist: PokeListSlice,
+    pokedata: PokeDataSlice,
   },
 });
 

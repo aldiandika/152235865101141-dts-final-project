@@ -1,5 +1,4 @@
 import { Box, Button, Container, Grid } from "@mui/material";
-import zIndex from "@mui/material/styles/zIndex";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PokeListCard from "../components/PokeList_card";
@@ -70,16 +69,26 @@ const PokemonList = () => {
           )}
         </Box>
         {isLoading ? (
-          <>Loading..</>
+          <Box
+            sx={{
+              height: "90vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div className="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </Box>
         ) : (
           <Grid container spacing={1}>
             {pokeList.map((item, index) => (
-              <Grid item xs={6} sm={6} md={3} lg={3}>
-                <PokeListCard
-                  key={zIndex}
-                  pokeUrl={item.url}
-                  pokeName={item.name}
-                />
+              <Grid item key={item.name} xs={6} sm={6} md={3} lg={3}>
+                <PokeListCard pokeUrl={item.url} pokeName={item.name} />
               </Grid>
             ))}
           </Grid>
@@ -96,7 +105,7 @@ const PokemonList = () => {
           }}
         >
           {prevList !== null ? (
-            <Button variant="text" onClick={prevPage}>
+            <Button variant="text" onClick={prevPage} className="text-button">
               PREV
             </Button>
           ) : (
@@ -106,7 +115,7 @@ const PokemonList = () => {
           )}
 
           {nextList !== null ? (
-            <Button variant="text" onClick={nextPage}>
+            <Button variant="text" onClick={nextPage} className="text-button">
               NEXT
             </Button>
           ) : (
