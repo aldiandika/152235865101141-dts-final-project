@@ -7,28 +7,31 @@ import Homepage from "./containers/Homepage";
 import LoadingPage from "./containers/LoadingPage";
 import LostPage from "./containers/404_page";
 import RegisterPage from "./containers/RegisterPage";
+import PokemonDetailPage from "./containers/Pokemon_detailPage";
+import PokemonCatchPage from "./containers/Pokemon_catchPage";
+import ProtectedComponent from "./components/ProtectedComponent";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/detail/:id" element={<Homepage />} />
+        <Route path="/detail/:id" element={<PokemonDetailPage />} />
 
         {/* Login and register */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
         {/* Protected Route */}
-        {/* <Route
+        <Route
           path="/catch-pokemon/:id"
           element={
             <ProtectedComponent>
-              // Catch pokemon page
+              <PokemonCatchPage />
             </ProtectedComponent>
           }
         />
-         <Route
+        {/* <Route
           path="/my-pokemon/:id"
           element={
             <ProtectedComponent>

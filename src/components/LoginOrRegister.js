@@ -8,9 +8,12 @@ import {
 } from "../authentication/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ImageLogo from "../assets/logo.png";
+import { useSelector } from "react-redux";
+import { routeState } from "../reducers/PokeDataSlice";
 
 const LoginOrRegister = ({ loginOrRegister }) => {
   const navigate = useNavigate();
+  const routeSelectState = useSelector(routeState);
 
   const [user, isLoading] = useAuthState(auth);
 
@@ -55,9 +58,9 @@ const LoginOrRegister = ({ loginOrRegister }) => {
     }
 
     if (user) {
-      navigate("/");
+      navigate(routeSelectState);
     }
-  }, [user, isLoading, navigate]);
+  }, [user, isLoading, navigate, routeSelectState]);
 
   return (
     <>

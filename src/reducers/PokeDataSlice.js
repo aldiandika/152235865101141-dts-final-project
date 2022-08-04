@@ -7,6 +7,7 @@ const initialState = {
   pokeType: [],
   pokeID: "#00",
   loading: false,
+  route: "/",
 };
 
 // Get pokemon data
@@ -21,6 +22,11 @@ export const getPokeData = createAsyncThunk(
 const PokemonDataSlice = createSlice({
   name: "pokedata",
   initialState: initialState,
+  reducers: {
+    saveRoute: (state, action) => {
+      state.route = action.payload.route;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPokeData.fulfilled, (state, action) => {
@@ -80,4 +86,7 @@ export const pokeIDState = (state) => state.pokedata.pokeID;
 export const pokeDataState = (state) => state.pokedata.pokemonData;
 export const pokeTypeState = (state) => state.pokedata.pokeType;
 export const isLoadingState = (state) => state.pokedata.loading;
+export const routeState = (state) => state.pokedata.route;
+
+export const { saveRoute } = PokemonDataSlice.actions;
 export default PokemonDataSlice.reducer;

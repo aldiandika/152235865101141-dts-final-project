@@ -31,6 +31,16 @@
   justify-content: center;
 }
 
+.detail-root-container{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e8e8d9f0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .inner-container{
   width: 100%;
   min-height: 90vh;
@@ -148,12 +158,60 @@
   background-color: #386A7B;
 }
 
+/* Pokemon type */
+.poke-type{
+  width: auto;
+  border-radius: 8em;
+  padding: 0.2em;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Pokemon detail */
+.poke-image-container{
+  flex-basis:10em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.poke-image{
+  width: 10em;
+  height: 10em;
+  padding: 12px;
+  background-color: #cccbc4ec;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.poke-image img{
+  width: 100%;
+  animation: floating 5s ease-in-out infinite;
+}
+
+.poke-title{
+  font: bold 3em sans-serif;
+}
+
 /* Logo */
 .img-logo{
   padding: 2em 0 2em 0;
   animation: floating 5s ease-in-out infinite;
 }
 
+.img-lostpage{
+  width: 30vw;
+  height: auto;
+}
+
+.btn-fab{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
+  transform: translate3d(0, 0, 0);
+}
+/* Animation */
 @keyframes floating {
   0%{
     transform: translateY(0);
@@ -165,5 +223,23 @@
 
   100%{
     transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }

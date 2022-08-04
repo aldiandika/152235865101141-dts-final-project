@@ -55,6 +55,8 @@ const loginWithEmailAndPassword = async (email, password) => {
       email,
       password
     );
+
+    console.log(`${userCredential} success login`);
   } catch (err) {
     console.log(err);
     console.log("error code auth", err.code);
