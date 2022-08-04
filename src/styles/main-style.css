@@ -202,6 +202,12 @@
   animation: floating 5s ease-in-out infinite;
 }
 
+.img-logo-lostpage{
+  width:12em;
+  margin-top: 2em;
+  animation: floating 5s ease-in-out infinite;
+}
+
 .img-lostpage{
   width: 30vw;
   height: auto;

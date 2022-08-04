@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   pokeList: [],
+  myPokeList: [],
   loading: false,
   nextList: null,
   prevList: null,
@@ -33,6 +34,11 @@ export const getNewPokeList = createAsyncThunk(
 const PokemonListSlice = createSlice({
   name: "pokelist",
   initialState: initialState,
+  reducers: {
+    getMyPokeList: (state, action) => {
+      state.myPokeList = action.payload.pokeList;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPokeList.fulfilled, (state, action) => {
@@ -70,5 +76,7 @@ export const isLoadingState = (state) => state.pokelist.loading;
 export const nextListState = (state) => state.pokelist.nextList;
 export const prevListState = (state) => state.pokelist.prevList;
 export const pokeListState = (state) => state.pokelist.pokeList;
+export const myPokeListState = (state) => state.pokelist.myPokeList;
 
+export const { getMyPokeList } = PokemonListSlice.actions;
 export default PokemonListSlice.reducer;

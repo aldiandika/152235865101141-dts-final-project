@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PokeballBG from "../assets/pokeball.webp";
 
-const PokeListCard = ({ pokeUrl, pokeName }) => {
+const PokeListCard = ({ pokeUrl, pokeName, pokeAlias }) => {
   const navigate = useNavigate();
   const [cardColor, setCardColor] = useState("#FFFFFF");
   const [pokeID, setPokeID] = useState();
@@ -199,6 +199,28 @@ const PokeListCard = ({ pokeUrl, pokeName }) => {
             >
               #{pokeID}
             </Typography>
+          </Box>
+          <Box
+            component={CardContent}
+            sx={{
+              position: "absolute",
+              top: 78,
+              left: -5,
+              zIndex: 120,
+            }}
+          >
+            {pokeAlias && (
+              <Typography
+                fontSize={{ xs: 14, sm: 14, md: 18, lg: 18 }}
+                sx={{
+                  fontWeight: 600,
+                  color: "white",
+                  textTransform: "capitalize",
+                }}
+              >
+                alias : {pokeAlias}
+              </Typography>
+            )}
           </Box>
         </CardActionArea>
       </Card>

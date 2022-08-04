@@ -10,6 +10,7 @@ import RegisterPage from "./containers/RegisterPage";
 import PokemonDetailPage from "./containers/Pokemon_detailPage";
 import PokemonCatchPage from "./containers/Pokemon_catchPage";
 import ProtectedComponent from "./components/ProtectedComponent";
+import MyPokemonPage from "./containers/MyPokemon_page";
 
 function App() {
   return (
@@ -31,22 +32,14 @@ function App() {
             </ProtectedComponent>
           }
         />
-        {/* <Route
-          path="/my-pokemon/:id"
-          element={
-            <ProtectedComponent>
-              // My pokemon page
-            </ProtectedComponent>
-          }
-        />
         <Route
           path="/my-pokemon/"
           element={
             <ProtectedComponent>
-              // My pokemon page
+              <MyPokemonPage />
             </ProtectedComponent>
           }
-        /> */}
+        />
 
         {/* Loading page */}
         <Route path="/loading" element={<LoadingPage />} />

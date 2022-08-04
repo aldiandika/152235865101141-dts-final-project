@@ -77,7 +77,13 @@ const LoginOrRegister = ({ loginOrRegister }) => {
               gap: 2,
             }}
           >
-            <img src={ImageLogo} alt="Logo" className="img-logo" />
+            <Link
+              style={{ color: "inherit", textDecoration: "inherit" }}
+              to="/"
+            >
+              <img src={ImageLogo} alt="Logo" className="img-logo" />
+            </Link>
+
             {loginOrRegister === "login" ? (
               <div className="title">Login and Let's Catch</div>
             ) : (
