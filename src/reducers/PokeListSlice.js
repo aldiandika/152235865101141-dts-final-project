@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
   pokeList: [],
   myPokeList: [],
+  pokeListGen: [],
   loading: false,
   nextList: null,
   prevList: null,
@@ -27,6 +28,15 @@ export const getNewPokeList = createAsyncThunk(
   async (url) => {
     const response = await axios.get(url);
     // console.log(response.data);
+    return response.data;
+  }
+);
+
+// Fetch based on generation
+export const getPokeListGen = createAsyncThunk(
+  "pokelist/fetchByGen",
+  async (url) => {
+    const response = await axios.get(url);
     return response.data;
   }
 );
@@ -68,6 +78,18 @@ const PokemonListSlice = createSlice({
       .addCase(getNewPokeList.rejected, (state, action) => {
         console.log("fail to get list");
         state.loading = false;
+      })
+      .addCase(getPokeListGen.fulfilled, (state, action) => {
+        // Assign to state
+        state.pokeListGen = action.payload.pokemon_species;
+        state.loading = false;
+      })
+      .addCase(getPokeListGen.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(getPokeListGen.rejected, (state, action) => {
+        console.log("fail to get list");
+        state.loading = false;
       });
   },
 });
@@ -77,6 +99,7 @@ export const nextListState = (state) => state.pokelist.nextList;
 export const prevListState = (state) => state.pokelist.prevList;
 export const pokeListState = (state) => state.pokelist.pokeList;
 export const myPokeListState = (state) => state.pokelist.myPokeList;
+export const PokeListGen = (state) => state.pokelist.pokeListGen;
 
 export const { getMyPokeList } = PokemonListSlice.actions;
 export default PokemonListSlice.reducer;

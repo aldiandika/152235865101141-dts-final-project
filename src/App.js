@@ -11,6 +11,7 @@ import PokemonDetailPage from "./containers/Pokemon_detailPage";
 import PokemonCatchPage from "./containers/Pokemon_catchPage";
 import ProtectedComponent from "./components/ProtectedComponent";
 import MyPokemonPage from "./containers/MyPokemon_page";
+import PokemonListGen from "./containers/Pokemon_list_gen";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/detail/:id" element={<PokemonDetailPage />} />
+        <Route path="/generation/:id" element={<PokemonListGen />} />
 
         {/* Login and register */}
         <Route path="/login" element={<LoginPage />} />
@@ -42,7 +44,7 @@ function App() {
         />
 
         {/* Loading page */}
-        <Route path="/loading" element={<LoadingPage />} />
+        {/* <Route path="/loading" element={<LoadingPage />} /> */}
 
         {/* 404 Page */}
         <Route path="/*" element={<LostPage />} />
